@@ -1,0 +1,81 @@
+server:
+  port: 8140
+  #ssl:
+  #key-store: classpath:foodseller.p12
+  #key-store: meishi.p12
+  #key-store-password: 123456a
+  #key-store-type: PKCS12
+  #key-alias: 1
+  #本地设置为false
+  #enabled: false
+
+
+spring:
+  application:
+    name: personal
+  profiles:
+    active: dev
+  jackson:
+    time-zone: GMT+8
+  servlet:
+    multipart:
+      max-file-size: 1024MB
+      max-request-size: 1024MB
+
+file:
+  #ipPort: 49.233.52.241:8140/
+  ipPort: 192.168.3.167:9990/
+  requestWay: http://
+  #requestWay: https://
+
+mybatis-plus:
+  mapper-locations: classpath:/mapper/**/*.xml
+  global-config:
+    db-config:
+      id-type: auto
+  configuration:
+    auto-mapping-behavior: partial
+    map-underscore-to-camel-case: true
+
+jwt:
+  tokenHeader: Authorization #JWT存储的请求头
+  secret: tcsz-sso-secret #JWT加解密使用的密钥
+  #expiration: 86400 #JWT的超期限时间(60*60*24)
+  expiration: 604800 #JWT的超期限时间(60*60*24)
+  tokenHead: ''  #JWT负载中拿到开头
+
+async:
+  # 配置核心线程数
+  core_pool_size: 10
+  # 配置最大线程数
+  max_pool_size: 10
+  # 配置队列大小
+  queue_capacity: 10000
+  # 配置线程池中的线程的名称前缀
+  prefix: async-service-
+
+
+secure:
+  ignored:
+    urls: #安全路径白名单
+      - /doc.html
+      - /swagger-ui.html
+      - /swagger-resources/**
+      - /swagger/**
+      - /**/v2/api-docs
+      - /**/*.js
+      - /**/*.css
+      - /**/*.png
+      - /**/*.ico
+      - /webjars/springfox-swagger-ui/**
+      - /actuator/**
+      - /druid/**
+      - /admin/login
+      - /admin/register
+      - /admin/info
+      - /admin/logout
+      - /umsMember/login
+      - /umsMember/register
+      - /umsMember/logout
+      - /test/**
+      - /websocket
