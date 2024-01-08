@@ -18,10 +18,10 @@ import java.net.UnknownHostException;
 @EnableScheduling
 @MapperScan("com.tc.personal.modules.*.mapper")
 @SpringBootApplication(exclude = DruidDataSourceAutoConfigure.class)
-public class WestCityAssessmentApplication {
+public class PublicApplication {
 
     public static void main(String[] args) {
-        ConfigurableApplicationContext application = SpringApplication.run(WestCityAssessmentApplication.class, args);
+        ConfigurableApplicationContext application = SpringApplication.run(PublicApplication.class, args);
         Environment env = application.getEnvironment();
         String ip = null;
         try {
