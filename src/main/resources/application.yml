@@ -12,7 +12,7 @@ server:
 
 spring:
   application:
-    name: personal
+    name: public
   profiles:
     active: dev
   jackson:

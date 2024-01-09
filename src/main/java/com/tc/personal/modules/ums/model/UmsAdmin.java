@@ -25,6 +25,9 @@ public class UmsAdmin implements Serializable {
     @ApiModelProperty(value = "id")
     private Long id;
 
+    /*@TableId(type = IdType.ASSIGN_UUID)
+    private String id;*/
+
     @ApiModelProperty(value = "用户名")
     private String username;
 
